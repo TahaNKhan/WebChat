@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./partials/content/header %>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="jumbotron">TTChatApp</h1>
+        <p>Welcome to Troll Train Chat App!</p>
+        <p>Register:</p>
+        
+            <form method="POST" id="form1" action="/register">
+                <div class="row">
+                <div class="col-sm-3">
+                    <label for="fullname">Full Name:</label>
+                    <input name="fullname">
+                </div>
+                <div class="col-sm-3">
+                    <label for="username">Username:</label>
+                    <input name="username">
+                </div>
+                <div class="col-sm-3">
+                    <label for="password">Password:</label>
+                    <input name="password" type="password">
+                </div>
+                 <div class="col-sm-3">
+                    <label for="email">Email:</label>
+                    <input name="email">
+                </div>
+                </div>
+                
+                <button type="submit" form="form1">Register</button>
+            </form>
+        
+    </div>
+</body>
+
+</html>

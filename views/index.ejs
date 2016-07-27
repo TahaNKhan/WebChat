@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./partials/content/header %>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="jumbotron">TTChatApp</h1>
+        <p>Welcome to Troll Train Chat App!</p>
+        <p>Please Log in:</p>
+        <div class="row">
+            <form method="post" action="/login">
+                <div class="col-sm-4">
+                    <label for="username">Username:</label>
+                    <input name="username">
+                </div>
+                <div class="col-sm-4">
+                    <label for="password">Password:</label>
+                    <input name="password" type="password">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
