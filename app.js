@@ -43,7 +43,7 @@ app.use(bodyParser.urlencoded({
 app.use(session({
     secret: 'ttchatappp',
     cookie: {
-        maxAge: 3600000 // see below
+        maxAge: 172800000 // see below
     },
     store: new MongoStore({
         mongooseConnection: mongoose.connection
