@@ -15,13 +15,22 @@ router.get('/login', function (req, res, next) {
     });
 });
 router.get('/userhome', function (req, res) {
-    if(req.user)
-    res.render('chatapp', {
-        title: "TTChatApp",
-        user: req.user
-    })
+    if (req.user)
+        res.render('chatapp', {
+            title: "TTChatApp",
+            user: req.user
+        })
     else
         res.redirect('/')
+});
+
+router.get('/about', function (req, res) {
+    if (req.user)
+        res.render('about', {
+            title: 'About'
+        })
+    else
+        res.redirect('/');
 });
 
 //user stuff
