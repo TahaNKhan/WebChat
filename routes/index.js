@@ -7,7 +7,10 @@ router.get('/', function (req, res, next) {
     });
 });
 router.get('/userhome', function (req, res) {
-    res.render('chatapp', {title: "TTChatApp"})
+    res.render('chatapp', {
+        title: "TTChatApp",
+        user:req.user
+    })
 });
 //user stuff
 router.use(require('./users'));
