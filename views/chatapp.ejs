@@ -3,17 +3,57 @@
 
 <head>
     <% include ./partials/content/header %>
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="jumbotron">TTChatApp</h1>
-        <p>Welcome! <%=user.username%></p>
+        <% include ./partials/template/navbar.ejs %>
+ 
+        <p>Welcome!
+            <%=user.username%>
+        </p>
         <p></p>
         <div class="row">
+            <div id="messages" class="col-sm-12">
+                <textarea readonly class="form-control" style="height:70vh;width:100%"></textarea>
+            </div>
+        </div>
+        <div class="row" id="sendmessage">
+            <div class="col-sm-8">
+                <input id="thismessage" placeholder="Enter a Message Here" class="form-control">
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+            </div>
+
+
 
         </div>
     </div>
 </body>
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+            //code goes here that will be run every 5 seconds.   
+            $("#messages").load('/messages');
+
+        }, 1000);
+    });
+</script>
+<script>
+    sendMessage = function () {
+//        console.log('/messages/'+$("#thismessage").val());
+        $.ajax({
+            url: '/messages/send/'+$("#thismessage").val(),
+            type: 'PUT',
+//            data: "name=John&location=Boston",
+            success: function (data) {
+                console.log('happened')
+            }
+        });
+        $("#thismessage").val('');
+    }
+</script>
 
 </html>

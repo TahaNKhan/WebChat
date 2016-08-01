@@ -13,19 +13,21 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('./passport/auth');
 var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(80);
+//var server = require('http').Server(app);
 
-server.listen(81);
 
-io.on('connection', function (socket) {
-    socket.emit('news', {
-        hello: 'world'
-    });
-    socket.on('my other event', function (data) {
+
+var io = require('socket.io')();
+// Set socket.io listeners.
+io.on('connect', function(client) {  
+    console.log('Client connected...');
+
+    client.on('join', function(data) {
         console.log(data);
     });
+
 });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

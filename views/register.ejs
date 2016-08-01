@@ -10,30 +10,34 @@
         <h1 class="jumbotron">TTChatApp</h1>
         <p>Welcome to TTChat App!</p>
         <p>Register:</p>
-        
-            <form method="POST" id="form1" action="/register">
-                <div class="row">
-                <div class="col-sm-3">
-                    <label for="fullname">Full Name:</label>
-                    <input name="fullname">
+
+        <form method="POST" id="form1" action="/register">
+            <div class="row">
+                <div class="col-sm-3 form-group">
+
+                    <input placeholder="Name" class="form-control" name="fullname">
+
+
+
+                    <input placeholder="Username" class="form-control" name="username">
+
+
+
+                    <input placeholder="Password" class="form-control" name="password" type="password">
+
+
+
+                    <input placeholder="Email" class="form-control" name="email">
+
                 </div>
-                <div class="col-sm-3">
-                    <label for="username">Username:</label>
-                    <input name="username">
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <button type="submit" form="form1" class="btn btn-primary">Register</button>
                 </div>
-                <div class="col-sm-3">
-                    <label for="password">Password:</label>
-                    <input name="password" type="password">
-                </div>
-                 <div class="col-sm-3">
-                    <label for="email">Email:</label>
-                    <input name="email">
-                </div>
-                </div>
-                
-                <button type="submit" form="form1">Register</button>
-            </form>
-        
+            </div>
+        </form>
+
     </div>
 </body>
 

@@ -10,11 +10,11 @@ router.get('/register', function (req, res, next) {
     });
 });
 router.post('/register', function (req, res, next) {
-    console.log(req.body)
+
     var newuserinfo = req.body;
     var newuser = new Users({
         username: newuserinfo.username,
-        password: sha256(newuserinfo.password+newuserinfo.username),
+        password: sha256(newuserinfo.password + newuserinfo.username),
         fullname: newuserinfo.fullname,
         email: newuserinfo.email
     });
@@ -33,4 +33,31 @@ router.post('/login', passport.authenticate('local', {
     successRedirect: '/userhome',
     failureRedirect: '/login'
 }));
+
+router.get('/logout', function (req, res) {
+    req.logout();
+    delete req.user;
+    res.redirect('/');
+});
+router.get('/messages', function (req, res) {
+    if (req.user) {
+        messages.find({}, function (err, messages) {
+            res.render('messages', {
+                messages:messages
+
+            })
+        })
+    } else {
+        res.redirect('/');
+    }
+});
+router.put('/messages/send/:message', function (req, res) {
+    message = new messages({
+        username: req.user.username,
+        message: req.params.message
+    })
+    message.save();
+
+});
+
 module.exports = router;
