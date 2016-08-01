@@ -6,3 +6,11 @@ body {
 a {
     color: #00B7FF;
 }
+
+#messagetextarea{
+    height:70vh;width:100%
+}
+
+@media screen and(max-width:768px){
+    height:40vh;width:100%
+}
