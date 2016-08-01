@@ -15,15 +15,15 @@
             </p>
             <p></p>
             <div class="row">
-                <div  class="col-sm-12">
+                <div class="col-sm-12">
                     <div id="messages">
-                    <textarea class="form-control"></textarea>
+                        <textarea class="form-control"></textarea>
                     </div>
                 </div>
             </div>
             <div class="row" id="sendmessage">
                 <div class="col-sm-8">
-                    <input id="thismessage" placeholder="Enter a Message Here" class="form-control">
+                    <input id="thismessage" onchange="sendThroughEnter()" placeholder="Enter a Message Here" class="form-control">
                 </div>
                 <div class="col-sm-4">
                     <button class="btn btn-primary" onclick="sendMessage()">Send</button>
@@ -54,6 +54,30 @@
             }
         });
         $("#thismessage").val('');
+    }
+</script>
+<script>
+    sendThroughEnter = function () {
+        $("#thismessage").keyup(function (e) {
+            /*
+             * Delay the enter key form submit till after the hidden
+             * input is updated.
+             */
+
+            // No need to do anything if it's not the enter key
+            // Also only e.which is needed as this is the jQuery event object.
+            if (e.which !== 13) {
+                return;
+            } else {
+
+                // Prevent form submit
+                e.preventDefault();
+
+                sendMessage();
+
+
+            }
+        });
     }
 </script>
 
