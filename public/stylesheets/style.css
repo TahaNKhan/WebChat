@@ -1,5 +1,4 @@
 body {
-
     font-family: "Oswald";
 }
 
@@ -7,12 +6,16 @@ a {
     color: #00B7FF;
 }
 
-#messagetextarea{
-    height:70vh;width:100%
+#messagetextarea {
+    height: 70vh;
+    width: 100%;
+    overflow-x: scroll;
 }
 
-@media screen and(max-width:768px){
-    #messagetextarea{
-    height:40vh;width:100%
+@media screen and(max-width:768px) {
+    #messagetextarea {
+        height: 40vh;
+        width: 100%;
+        overflow-x: scroll;
     }
 }

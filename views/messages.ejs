@@ -1,9 +1,5 @@
-<textarea readonly class="form-control" id="messagetextarea" >
+<div class="form-control" id="messagetextarea" >
     <%messages.forEach(function(item){%>
-        <%=item.username%>:<%=item.message%>
+        [<%=item.date.toLocaleTimeString()%>]  <%=item.username%> : <%=item.message%><br>
     <%})%>
-</textarea>
-<script>
-
-            var textarea = document.getElementById('messagetextarea');
-            textarea.scrollTop = textarea.scrollHeight;</script>
+</div>

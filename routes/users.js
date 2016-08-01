@@ -41,9 +41,9 @@ router.get('/logout', function (req, res) {
 });
 router.get('/messages', function (req, res) {
     if (req.user) {
-        messages.find({}).limit(100).exec(function (err, messages) {
+        messages.find({}).sort({'date':'desc'}).limit(10).exec(function (err, messages) {
             res.render('messages', {
-                messages: messages
+                messages: messages.reverse()
             })
         })
     } else {
@@ -53,7 +53,8 @@ router.get('/messages', function (req, res) {
 router.put('/messages/send/:message', function (req, res) {
     message = new messages({
         username: req.user.username,
-        message: req.params.message
+        message: req.params.message,
+        date : new Date()
     })
     message.save();
 

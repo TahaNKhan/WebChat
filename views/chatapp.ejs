@@ -15,10 +15,10 @@
             </p>
             <p></p>
             <div class="row">
-                <div id="messages" class="col-sm-12">
-                    <textarea id="messageareatext" readonly class="form-control" >
-                    
-                    </textarea>
+                <div  class="col-sm-12">
+                    <div id="messages">
+                    <textarea class="form-control"></textarea>
+                    </div>
                 </div>
             </div>
             <div class="row" id="sendmessage">
@@ -37,11 +37,8 @@
 <script>
     $(document).ready(function () {
         setInterval(function () {
-            //code goes here that will be run every 5 seconds.   
+            //code goes here that will be run every 1 seconds.   
             $("#messages").load('/messages');
-
-
-
         }, 1000);
     });
 </script>
