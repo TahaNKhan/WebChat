@@ -1,5 +1,5 @@
 <div class="form-control" id="messagetextarea" >
     <%messages.forEach(function(item){%>
-        [<%=item.date.toLocaleTimeString()%>]  <%=item.username%> : <%=item.message%><br>
+        [<%=item.date.toTimeString()%>]  <%=item.username%> : <%=item.message%><br>
     <%})%>
 </div>
