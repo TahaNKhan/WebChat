@@ -12,5 +12,7 @@ a {
 }
 
 @media screen and(max-width:768px){
+    #messagetextarea{
     height:40vh;width:100%
+    }
 }

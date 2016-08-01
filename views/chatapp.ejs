@@ -16,7 +16,9 @@
             <p></p>
             <div class="row">
                 <div id="messages" class="col-sm-12">
-                    <textarea readonly class="form-control" style="height:70vh;width:100%"></textarea>
+                    <textarea id="messageareatext" readonly class="form-control" >
+                    
+                    </textarea>
                 </div>
             </div>
             <div class="row" id="sendmessage">
@@ -38,18 +40,18 @@
             //code goes here that will be run every 5 seconds.   
             $("#messages").load('/messages');
 
-            $('#messages').scrollTop($('#messages')[0].scrollHeight);
+
 
         }, 1000);
     });
 </script>
 <script>
     sendMessage = function () {
-        //        console.log('/messages/'+$("#thismessage").val());
+
         $.ajax({
             url: '/messages/send/' + $("#thismessage").val(),
             type: 'PUT',
-            //            data: "name=John&location=Boston",
+
             success: function (data) {
                 console.log('happened')
             }
