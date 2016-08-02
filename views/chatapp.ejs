@@ -3,7 +3,8 @@
 
 <head>
     <% include ./partials/content/header %>
-        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="./javascripts/chatappfunctions.min.js"></script>
 </head>
 
 <body>
@@ -28,57 +29,7 @@
                 <div class="col-sm-4">
                     <button class="btn btn-primary" onclick="sendMessage()">Send</button>
                 </div>
-
-
-
             </div>
     </div>
 </body>
-<script>
-    $(document).ready(function () {
-        setInterval(function () {
-            //code goes here that will be run every 1 seconds.   
-            $("#messages").load('/messages');
-        }, 1000);
-    });
-</script>
-<script>
-    sendMessage = function () {
-
-        $.ajax({
-            url: '/messages/send/' + $("#thismessage").val(),
-            type: 'PUT',
-
-            success: function (data) {
-                console.log('happened')
-            }
-        });
-        $("#thismessage").val('');
-    }
-</script>
-<script>
-    sendThroughEnter = function () {
-        $("#thismessage").keyup(function (e) {
-            /*
-             * Delay the enter key form submit till after the hidden
-             * input is updated.
-             */
-
-            // No need to do anything if it's not the enter key
-            // Also only e.which is needed as this is the jQuery event object.
-            if (e.which !== 13) {
-                return;
-            } else {
-
-                // Prevent form submit
-                e.preventDefault();
-
-                sendMessage();
-
-
-            }
-        });
-    }
-</script>
-
 </html>
