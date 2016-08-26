@@ -17,7 +17,7 @@ router.get('/login', function (req, res, next) {
 router.get('/userhome', function (req, res) {
     if (req.user)
         res.render('chatapp', {
-            title: "TTChatApp",
+            title: "TKChatApp",
             user: req.user
         })
     else
