@@ -25,7 +25,7 @@ router.post('/register', function (req, res, next) {
         } else {
 
             console.log(newuser);
-            res.send('registered');
+            res.render('registered');
         }
     });
 });
