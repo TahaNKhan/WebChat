@@ -1,6 +1,6 @@
-# TKChatApp
+# WebChat
 
-A basic data burning chat app.
+My take on Web based chat application.  
 
 ##Current objectives:
 1. Change from Ajax polling to socket.io.
