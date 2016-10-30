@@ -9,10 +9,11 @@ sendMessage = function () {
     $.ajax({
         url: '/messages/send/',
         type: 'POST',
-        data: {message: messageToSend}
+        data: JSON.stringify({message: messageToSend}),
         success: function (data) {
             //something here if anything happens
         }
+        contentType: 'application/json'
     });
     $("#thismessage").val('');
 }
