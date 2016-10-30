@@ -15,7 +15,7 @@ sendMessage = function () {
         success: function (data) {
             //something here if anything happens
             console.log(data1)
-        }
+        },
         contentType: 'application/json'
     });
     $("#thismessage").val('');
