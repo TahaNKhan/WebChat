@@ -50,10 +50,10 @@ router.get('/messages', function (req, res) {
         res.redirect('/');
     }
 });
-router.put('/messages/send/:message', function (req, res) {
+router.post('/messages/send/', function (req, res) {
     message = new messages({
         username: req.user.username,
-        message: req.params.message,
+        message: req.body.message,
         date : new Date()
     })
     message.save();
