@@ -5,13 +5,16 @@ $(document).ready(function () {
     }, 1000);
 });
 sendMessage = function () {
-    var messageToSend = $("#thismessage").val()
+    var messageToSend = $("#thismessage").val();
+    var data1 = {};
+    data1.message = messageToSend;
     $.ajax({
         url: '/messages/send/',
         type: 'POST',
-        data: JSON.stringify({message: messageToSend}),
+        data: JSON.stringify(data1),
         success: function (data) {
             //something here if anything happens
+            console.log(data1)
         }
         contentType: 'application/json'
     });
