@@ -5,10 +5,11 @@ $(document).ready(function () {
     }, 1000);
 });
 sendMessage = function () {
+    var messageToSend = $("#thismessage").val()
     $.ajax({
-        url: '/messages/send/' + $("#thismessage").val(),
-        type: 'PUT',
-
+        url: '/messages/send/',
+        type: 'POST',
+        data: {message: messageToSend}
         success: function (data) {
             //something here if anything happens
         }
