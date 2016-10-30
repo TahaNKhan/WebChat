@@ -8,6 +8,9 @@ sendMessage = function () {
     var messageToSend = $("#thismessage").val();
     var data1 = {};
     data1.message = messageToSend;
+    if(messageToSend == ''){
+        return null 
+    }
     $.ajax({
         url: '/messages/send/',
         type: 'POST',
