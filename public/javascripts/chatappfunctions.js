@@ -1,13 +1,12 @@
 $(document).ready(function () {
  /*   setInterval(function () {
         //code goes here that will be run every 1 seconds.   
-       $("#messages").load('/messages');
+       
     }, 1000);
 */
-});
-var socket = io();
-socket.on('chat message', function(msg){
-       $("#messages").load('/messages');
+
+	socket = io();
+	$("#messages").load('/messages');
 });
 
 sendMessage = function () {
@@ -54,3 +53,8 @@ sendThroughEnter = function () {
     });
 
 }
+
+socket.on('chat message', function(msg){
+       $("#messages").load('/messages');
+});
+
