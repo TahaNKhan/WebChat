@@ -18,7 +18,8 @@ router.get('/userhome', function (req, res) {
     if (req.user)
         res.render('chatapp', {
             title: "WebChat",
-            user: req.user
+            user: req.user,
+			port: process.env.PORT || '3000'
         })
     else
         res.redirect('/')

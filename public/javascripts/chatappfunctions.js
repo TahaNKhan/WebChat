@@ -5,7 +5,7 @@ $(document).ready(function () {
     }, 1000);
 */
 
-	socket = io.connect('http://tkchatapp.herokuapp.com');
+	socket = io.connect('http://tkchatapp.herokuapp.com:'+port);
 	$("#messages").load('/messages');
 });
 
