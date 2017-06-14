@@ -41,7 +41,7 @@ router.get('/logout', function (req, res) {
 });
 router.get('/messages', function (req, res) {
     if (req.user) {
-        messages.find({}).sort({'date':'desc'}).limit(10).exec(function (err, messages) {
+        messages.find({}).sort({'date':'desc'}).limit(20).exec(function (err, messages) {
             res.render('messages', {
                 messages: messages.reverse()
             })

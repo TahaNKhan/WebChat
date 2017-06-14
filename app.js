@@ -13,11 +13,11 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('./passport/auth');
 var app = express();
-//var server = require('http').Server(app);
+var server = require('http').Server(app);
 
 
 
-var io = require('socket.io')();
+var io = require('socket.io')(server);
 // Set socket.io listeners.
 io.on('connect', function(client) {  
     console.log('Client connected...');
@@ -26,6 +26,12 @@ io.on('connect', function(client) {
         console.log(data);
     });
 
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
 });
 
 
